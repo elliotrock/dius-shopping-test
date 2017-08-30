@@ -8,6 +8,7 @@ var basket = []
 
 export const scan = (sku) => {
   let product = catalogue.find(item => {
+    console.log(item.sku === sku)
     return item.sku === sku
   })
   basket.push(product)
@@ -15,6 +16,13 @@ export const scan = (sku) => {
 export const total = () => {
   return new Promise((accept, reject) => {
     let sumTotal = 0
+    // note: add pricingRules engine next
+    // - group
+    // - compare against pricing rules json for quality, operator (>=, >, ==), price, bundle
+    basket.forEach(item => {
+      if(item !== undefined ) sumTotal += Number(item.price) 
+      console.log(sumTotal)
+    })
     accept(sumTotal)
   })
 }

@@ -5,8 +5,9 @@ test('test checkout scan', t => {
   t.pass(scan('abc'))
 })
 // test the total
-test('test checkout scan', t => {
+test('test checkout scan is 0', t => {
   return total().then(result => {
-		t.is(result, 0)
+    t.log(result)
+		t.true(result === 0)
 	})
 })
