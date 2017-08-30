@@ -4,14 +4,32 @@
   "description": "DiUS shopping test",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "babel-node index.js",
+    "build": "babel src -d lib",
+    "test": "ava"
+  },
+  "ava": {
+    "files": [
+      "tests/*.js"
+    ],
+    "babel": "inherit",
+    "require": [
+      "babel-register"
+    ]
   },
   "author": "Elliot Rock",
   "license": "ISC",
   "devDependencies": {
+    "ava": "^0.22.0",
     "babel-cli": "^6.26.0",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "eslint-config-airbnb-base": "^11.3.2",
     "eslint-plugin-import": "^2.7.0"
+  },
+  "dependencies": {
+    "node-fetch": "^1.7.2"
   }
 }
