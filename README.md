@@ -26,6 +26,6 @@ const rules = [
 ```
 
 ## tools used: ##
-* Ava - simple, powerful test runner, es6 compatible 
+* Ava - simple, powerful test runner, es6 compatible https://github.com/avajs/ava
 * Babel - es6 transpiling
 * Promises 
