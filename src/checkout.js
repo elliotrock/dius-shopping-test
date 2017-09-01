@@ -20,9 +20,11 @@ export const total = () => {
   return new Promise((resolve, reject) => {
     if(basket !== undefined ) {
       pricingRules(basket).then(result => {
+        basket=[]
         resolve(result)
       })
     } else {
+      basket=[]
       resolve(0)
     }
   })
