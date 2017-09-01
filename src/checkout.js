@@ -1,3 +1,5 @@
+import {pricingRules} from './pricing-rules'
+
 const catalogue = [
     { sku: 'ipd', name: 'Super iPad', price: 549.99 },
     { sku: 'mbp', name: 'MacBook Pro', price: 1399.99 },
@@ -8,21 +10,20 @@ var basket = []
 
 export const scan = (sku) => {
   let product = catalogue.find(item => {
-    console.log(item.sku === sku)
     return item.sku === sku
   })
-  basket.push(product)
+  if(product !== undefined) basket.push(product)
+  // consider passing an error but this should be a soft fail
+  return product !== undefined ? true : false  
 }
 export const total = () => {
-  return new Promise((accept, reject) => {
-    let sumTotal = 0
-    // note: add pricingRules engine next
-    // - group
-    // - compare against pricing rules json for quality, operator (>=, >, ==), price, bundle
-    basket.forEach(item => {
-      if(item !== undefined ) sumTotal += Number(item.price) 
-      console.log(sumTotal)
-    })
-    accept(sumTotal)
+  return new Promise((resolve, reject) => {
+    if(basket !== undefined ) {
+      pricingRules(basket).then(result => {
+        resolve(result)
+      })
+    } else {
+      resolve(0)
+    }
   })
 }
