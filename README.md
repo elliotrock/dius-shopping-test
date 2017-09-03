@@ -2,7 +2,7 @@
 
 node.js example
 
-The main problem is allowing for a client to update the rules without too much code changes. The three current methods can be used against other sku's by editting the js object (which could be easily changed to an external json file).
+The main problem is allowing for a client to update the rules without too much code changes. To help this extend to being a proper tool, the deals use a set of rules in the ```pricing-rules```, so the deals are more programmatic. The three current methods can be used against other sku's by editting the js object (which could be easily changed to an external json file).
 
 This way new rules can be added and have an easy way to edit them for various products.
 
