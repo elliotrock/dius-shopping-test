@@ -11,7 +11,7 @@ The rules are defined with three properties;
 ```
 sku - the product sku
 quanity - the quanity needed for the deal
-operator - if the deal is is for a set or bulk deal
+operator - if the deal is for a set ```==``` or bulk deal ```>=```
 unitPrice - the new price if the deal is triggered
 bundle - if this is part of another sku
 ```
@@ -28,4 +28,4 @@ const rules = [
 ## tools used: ##
 * Ava - simple, powerful test runner, es6 compatible https://github.com/avajs/ava
 * Babel - es6 transpiling
-* Promises 
+
